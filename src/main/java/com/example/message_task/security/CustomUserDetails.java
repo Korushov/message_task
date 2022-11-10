@@ -9,19 +9,21 @@ import java.util.Collection;
 
 public class CustomUserDetails implements UserDetails {
 
-    private String username;
+    private String login;
     private String password;
+    private Collection<? extends GrantedAuthority> grantedAuthorities;
 
     public static CustomUserDetails fromUserEntityToCustomUserDetails(User user) {
         CustomUserDetails c = new CustomUserDetails();
-        c.username = user.getName();
+        c.login = user.getUsername();
         c.password = user.getPassword();
+        c.grantedAuthorities = new ArrayList<>();
         return c;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return new ArrayList<>();
     }
 
     @Override
@@ -31,7 +33,7 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public String getUsername() {
-        return username;
+        return login;
     }
 
     @Override

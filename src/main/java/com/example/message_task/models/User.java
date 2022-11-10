@@ -1,52 +1,31 @@
 package com.example.message_task.models;
 
+import lombok.*;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name= "Users")
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "users")
 public class User {
 
     @Id
-    @Column(name = "user_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int userId;
+    @Column(name = "id", unique = true)
+    private int id;
 
-    @Column(name = "name")
+    @Column(name = "username", unique = true)
     private String username;
 
     @Column(name = "password")
     private String password;
 
-    public User(int userId, String name, String password) {
-        this.userId = userId;
-        this.username = username;
-        this.password = password;
-    }
+    @OneToMany
+    @JoinColumn(name = "user_id")
+    private List<Message> messageList;
 
-    public User() {
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public String getName() {
-        return username;
-    }
-
-    public void setName(String name) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }

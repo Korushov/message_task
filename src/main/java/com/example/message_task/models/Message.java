@@ -1,52 +1,29 @@
 package com.example.message_task.models;
 
+import lombok.*;
+
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Message")
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "message")
 public class Message {
 
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", unique = true)
     private int id;
 
     @Column(name = "message")
     private String message;
 
-    @Column(name = "user_id")
-    private int userId;
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.PERSIST,
+            CascadeType.REFRESH, CascadeType.MERGE})
+    @JoinColumn(name = "user_id")
+    private User user;
 
-    public Message(int id, String message, int userId) {
-        this.id = id;
-        this.message = message;
-        this.userId = userId;
-    }
 
-    public Message() {
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
 }
