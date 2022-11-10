@@ -1,4 +1,4 @@
-package com.example.message_task.controllers;
+package com.example.message_task.dto.auth;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

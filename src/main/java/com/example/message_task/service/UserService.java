@@ -17,7 +17,6 @@ public class UserService {
 
     private final UserRepository userRepository;
 
-
     private final PasswordEncoder passwordEncoder;
 
     public User findByLogin(String username){
@@ -28,15 +27,16 @@ public class UserService {
     public User findByNameAndPassword(String username, String password) throws UsernameNotFoundException {
 
         User user = userRepository.findByUsername(username);
+        // Invalid Credentials
         if (user == null) {
             log.error("User not found in the Database");
-            throw new UsernameNotFoundException("User not found");
         } else {
             log.info("User found in the Database: {}", username);
             if (passwordEncoder.matches(password, user.getPassword())) {
                 return user;
             }
         }
-        return null;
+        throw new UsernameNotFoundException("User not found");
+
     }
 }

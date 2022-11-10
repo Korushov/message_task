@@ -12,4 +12,11 @@ public class ControllerExceptionHandler {
     public ResponseEntity<String> handleException(Exception exception){
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
     }
+
+//    @ExceptionHandler(value={UsernameNotFoundException.class, MessagesNotFoundException.class})
+//    public ResponseEntity<String> handleException(Exception exception){
+//        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
+//    }
+
+    //
 }

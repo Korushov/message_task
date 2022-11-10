@@ -20,21 +20,21 @@ import java.util.List;
 @Transactional(readOnly = true)
 public class MessageService {
 
-    private final MessageRepository messageRepo;
-    private final UserRepository userRepo;
+    private final MessageRepository messageRepository;
+    private final UserRepository userRepository;
     private final ModelMapper modelMapper;
 
     @Transactional
     public List<MessageDTOMessage> sendMessage(MessageDTO messageDTO) {
         if (!messageDTO.getMessage().equals("History 10")) {
-            User user = userRepo.findByUsername(messageDTO.getName());
+            User user = userRepository.findByUsername(messageDTO.getName());
             Message message = modelMapper.map(messageDTO, Message.class);
             message.setMessage(message.getMessage());
             message.setUser(user);
-            messageRepo.save(message);
+            messageRepository.save(message);
             return null;
         } else {
-            List<Message> messages = messageRepo.getTenLastMessages();
+            List<Message> messages = messageRepository.getTenLastMessages();
             if (messages.size()==0) throw new MessagesNotFoundException();
             List<MessageDTOMessage> messageDTOs = new ArrayList<>();
             for (Message m : messages) {
