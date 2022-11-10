@@ -1,8 +1,10 @@
 package com.example.message_task.security;
 
+import com.example.message_task.models.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 public class CustomUserDetails implements UserDetails {
@@ -10,9 +12,11 @@ public class CustomUserDetails implements UserDetails {
     private String username;
     private String password;
 
-    public CustomUserDetails(String username, String password) {
-        this.username = username;
-        this.password = password;
+    public static CustomUserDetails fromUserEntityToCustomUserDetails(User user) {
+        CustomUserDetails c = new CustomUserDetails();
+        c.username = user.getName();
+        c.password = user.getPassword();
+        return c;
     }
 
     @Override

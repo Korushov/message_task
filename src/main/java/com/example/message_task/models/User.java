@@ -3,7 +3,7 @@ package com.example.message_task.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name= "User")
+@Table(name= "Users")
 public class User {
 
     @Id
@@ -11,15 +11,15 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userId;
 
-    @Column(name = "Name")
-    private String name;
+    @Column(name = "name")
+    private String username;
 
     @Column(name = "password")
     private String password;
 
     public User(int userId, String name, String password) {
         this.userId = userId;
-        this.name = name;
+        this.username = username;
         this.password = password;
     }
 
@@ -35,11 +35,11 @@ public class User {
     }
 
     public String getName() {
-        return name;
+        return username;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.username = username;
     }
 
     public String getPassword() {
