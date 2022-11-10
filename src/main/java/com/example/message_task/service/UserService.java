@@ -4,6 +4,7 @@ import com.example.message_task.models.User;
 import com.example.message_task.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -27,7 +28,7 @@ public class UserService {
     public User findByNameAndPassword(String username, String password) throws UsernameNotFoundException {
 
         User user = userRepository.findByUsername(username);
-        // Invalid Credentials
+
         if (user == null) {
             log.error("User not found in the Database");
         } else {
@@ -36,7 +37,7 @@ public class UserService {
                 return user;
             }
         }
-        throw new UsernameNotFoundException("User not found");
+        throw new BadCredentialsException("Bad Credentials");
 
     }
 }

@@ -11,13 +11,11 @@ public class CustomUserDetails implements UserDetails {
 
     private String login;
     private String password;
-    private Collection<? extends GrantedAuthority> grantedAuthorities;
 
     public static CustomUserDetails fromUserEntityToCustomUserDetails(User user) {
         CustomUserDetails c = new CustomUserDetails();
         c.login = user.getUsername();
         c.password = user.getPassword();
-        c.grantedAuthorities = new ArrayList<>();
         return c;
     }
 

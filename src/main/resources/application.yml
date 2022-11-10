@@ -5,6 +5,7 @@ spring:
     url: jdbc:postgresql://localhost:5432/message_task_db
     password: '11111111'
   jpa:
+    open-in-view: 'false'
     hibernate:
       ddl-auto: validate
 server:
