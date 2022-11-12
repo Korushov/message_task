@@ -28,4 +28,12 @@ public class User {
     @JoinColumn(name = "user_id")
     private List<Message> messageList;
 
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
+    public User(String username) {
+        this.username = username;
+    }
 }

@@ -25,5 +25,8 @@ public class Message {
     @JoinColumn(name = "user_id")
     private User user;
 
-
+    public Message(String message, User user) {
+        this.message = message;
+        this.user = user;
+    }
 }

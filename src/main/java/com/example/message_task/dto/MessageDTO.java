@@ -15,4 +15,9 @@ public class MessageDTO {
     private MessageDTO(String message) {
         this.message = message;
     }
+
+    public MessageDTO(String name, String message) {
+        this.name = name;
+        this.message = message;
+    }
 }

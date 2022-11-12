@@ -35,7 +35,7 @@ public class MessageService {
             return null;
         } else {
             List<Message> messages = messageRepository.getTenLastMessages();
-            if (messages.size()==0) throw new MessagesNotFoundException();
+            if (messages.isEmpty()) throw new MessagesNotFoundException();
             List<MessageDTOMessage> messageDTOs = new ArrayList<>();
             for (Message m : messages) {
                 MessageDTOMessage mapMessage = modelMapper.map(m, MessageDTOMessage.class);

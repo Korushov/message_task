@@ -38,6 +38,5 @@ public class UserService {
             }
         }
         throw new BadCredentialsException("Bad Credentials");
-
     }
 }
