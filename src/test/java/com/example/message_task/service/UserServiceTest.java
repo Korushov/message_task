@@ -2,7 +2,6 @@ package com.example.message_task.service;
 
 import com.example.message_task.models.User;
 import com.example.message_task.repository.UserRepository;
-import com.example.message_task.service.UserService;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,8 +16,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @ExtendWith(MockitoExtension.class)
 public class UserServiceTest {
-
-
 
     @InjectMocks
     UserService userService;
