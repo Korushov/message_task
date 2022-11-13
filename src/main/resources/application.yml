@@ -9,5 +9,5 @@ spring:
     hibernate:
       ddl-auto: validate
 server:
-  port: '7070'
+  port: '8081'
 secret: secret
