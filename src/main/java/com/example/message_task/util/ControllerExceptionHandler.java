@@ -17,7 +17,7 @@ public class ControllerExceptionHandler {
 
     //Для существующего пользователя введен неверный пароль
     @ExceptionHandler(value={BadCredentialsException.class})
-    public ResponseEntity<String> UnauthorizedException(Exception exception){
+    public ResponseEntity<String> unauthorizedException(Exception exception){
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(exception.getMessage());
     }
 

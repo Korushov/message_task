@@ -43,7 +43,7 @@ class MessageTaskApplicationTests {
 	public static final List<Message> messages = new ArrayList<>();
 
 	@Test
-	public void sendMessageTest(){
+	void sendMessageTest(){
 		when(userRepository.findByUsername(USER.getUsername())).thenReturn(USER);
 		MessageDTO messageDTO=mapper.map(MESSAGE, MessageDTO.class);
 		messageService.sendMessage(messageDTO);
@@ -51,7 +51,7 @@ class MessageTaskApplicationTests {
 	}
 
 	@Test
-	public void sendMessageShowHistoryTest(){
+	void sendMessageShowHistoryTest(){
 		when(userRepository.findByUsername(USER.getUsername())).thenReturn(USER);
 		List<Message> messages=new ArrayList<>();
 		messages.add(MESSAGE);

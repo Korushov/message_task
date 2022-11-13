@@ -11,7 +11,4 @@ public class MessageDTOMessage {
 
     private String message;
 
-    private MessageDTOMessage(String message) {
-        this.message = message;
-    }
 }

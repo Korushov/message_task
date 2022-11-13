@@ -12,10 +12,6 @@ public class MessageDTO {
 
     private String message;
 
-    private MessageDTO(String message) {
-        this.message = message;
-    }
-
     public MessageDTO(String name, String message) {
         this.name = name;
         this.message = message;
