@@ -11,5 +11,5 @@ CREATE TABLE IF NOT EXISTS message(
                                       FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
-INSERT INTO users VALUES(1, 'test', 'testpass');
-INSERT INTO users VALUES(2, 'test1', 'testpass');
+INSERT INTO users VALUES(1, 'test', '$2a$12$xuK3RGvW2Pv8r4X2Qke/AO963rfa.KDDXjSvdDzfra6xtmwXaOkbG');
+INSERT INTO users VALUES(2, 'test1', '$2a$12$xuK3RGvW2Pv8r4X2Qke/AO963rfa.KDDXjSvdDzfra6xtmwXaOkbG');

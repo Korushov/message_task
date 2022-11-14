@@ -1,0 +1,11 @@
+- Получить токен:
+
+'curl -X POST -H "Content-Type: application/json" -d '{"name": "test", "password": "testpass"}' http://localhost:8081/auth'
+
+- Отправить сообщение:
+
+'curl -X POST -H "Content-Type: application/json" -d '{"name": "test", "message": "Сообщение"}' -H "Authorization: Bearer_{token}" http://localhost:8081/api/message'
+
+- Показать историю сообщений (последние 10 сообщений):
+
+ 'curl -X POST -H "Content-Type: application/json" -d '{"name": "test", "message": "History 10"}' -H "Authorization: Bearer_{token}" http://localhost:8081/api/message'

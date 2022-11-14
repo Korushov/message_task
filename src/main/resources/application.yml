@@ -8,6 +8,4 @@ spring:
     open-in-view: 'false'
     hibernate:
       ddl-auto: validate
-server:
-  port: '8081'
 secret: secret
