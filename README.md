@@ -9,7 +9,7 @@
 
 - Скопировать проект с помощью команды "git clone https://github.com/Korushov/message_task.git"
 - Перейти в папку с проектом в командной строке
-- Выполнить команду "mvn clean"
+- Выполнить команду "mvn clean package"
 - Выполнить команду docker-compose up -d
 
 Файл с запросами из командной строки Console-requests.txt
