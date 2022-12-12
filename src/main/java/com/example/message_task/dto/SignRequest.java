@@ -1,9 +1,9 @@
-package com.example.message_task.dto.auth;
+package com.example.message_task.dto;
 
 import lombok.Data;
 
 @Data
-public class AuthRequest {
+public class SignRequest {
     private String name;
     private String password;
 }

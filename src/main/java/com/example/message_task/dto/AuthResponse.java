@@ -1,4 +1,4 @@
-package com.example.message_task.dto.auth;
+package com.example.message_task.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

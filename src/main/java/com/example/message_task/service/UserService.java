@@ -10,6 +10,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
@@ -38,5 +41,19 @@ public class UserService {
             }
         }
         throw new BadCredentialsException("Bad Credentials");
+    }
+
+    public List<String> findAllUsernames() {
+        List<User> users = userRepository.findAll();
+        List<String> usernames = new ArrayList<>();
+        for (User user : users) {
+            usernames.add(user.getUsername());
+        }
+        return usernames;
+    }
+
+    @Transactional(readOnly = false)
+    public void addNewUser(User user) {
+        userRepository.save(user);
     }
 }
